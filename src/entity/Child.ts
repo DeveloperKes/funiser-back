@@ -24,6 +24,9 @@ export class Child {
     @Column({ length: 50, nullable: false })
     status?: string;
 
+    @Column({ length: 50, nullable: false })
+    desayuno?: string;
+
     @ManyToOne(() => Eps, eps => eps.children)
     eps?: Eps;
 

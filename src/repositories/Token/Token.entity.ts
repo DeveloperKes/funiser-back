@@ -14,13 +14,13 @@ export class Token extends CommonEntity {
     @Column()
     refreshToken: string;
 
-    @Column({ type: 'enum', enum: TokenStatus, default: TokenStatus.ACTIVE })
+    @Column({ type: 'enum',enumName:'status', enum: TokenStatus, default: TokenStatus.ACTIVE })
     status: TokenStatus;
 
     @Column()
     device: string;
 
-    @Column({ type: 'timestamp with local time zone', default: () => 'CURRENT_TIMESTAMP' })
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     lastConnection: Date;
 
     @ManyToOne(() => User, user => user.tokens)

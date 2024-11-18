@@ -11,7 +11,7 @@ export class User extends CommonEntity {
     @Column({ unique: true })
     email: string;
 
-    @Column({ nullable: false })
+    @Column()
     password: string;
 
     @OneToMany(() => Token, token => token.user)

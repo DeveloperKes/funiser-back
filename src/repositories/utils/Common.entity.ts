@@ -1,5 +1,5 @@
-import { BaseEntity, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-export class CommonEntity extends BaseEntity {
+import { CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+export class CommonEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 

@@ -2,7 +2,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGene
 import { Person } from '../../Person/Person.entity'
 import { Child } from '../../Child/Child.entity'
 import { Family } from "../Family.entity";
-import { CommonEntity } from "src/repositories/utils/Common.entity";
+import { CommonEntity } from "../../utils/Common.entity";
 
 export enum RelationEnum {
     FATHER = "father",
@@ -20,7 +20,7 @@ export enum RelationEnum {
 @Entity("family_members")
 export class Member extends CommonEntity {
 
-    @Column({ type: 'enum', default: RelationEnum })
+    @Column({ type: 'enum', enum: RelationEnum, enumName: 'relation', default: RelationEnum.UNRELATED })
     relation: RelationEnum;
 
     @ManyToOne(() => Family, family => family.members)

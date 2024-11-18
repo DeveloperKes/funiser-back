@@ -19,20 +19,17 @@ export class Child extends CommonEntity {
     firstname: string;
 
     @Column()
-    lasstname: string;
+    lastname: string;
 
-    @Column({ type: 'enum', enum: GenderEnum, default: GenderEnum.NS })
+    @Column({ type: 'enum', enumName: 'gender', enum: GenderEnum, default: GenderEnum.NS })
     gender: GenderEnum;
 
-    @Column({ type: 'timestamp with local time zone' })
+    @Column({ type: 'date' })
     birthday: Date;
 
     // TODO: Definir los status en un enum
     @Column()
     status: string;
-
-    @Column()
-    givenBreakfast: boolean;
 
     @ManyToOne(() => Member, member => member.children)
     attendant: Member;
